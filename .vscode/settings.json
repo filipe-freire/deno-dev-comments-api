@@ -1,5 +1,11 @@
 {
   "deno.enable": true,
   "deno.lint": true,
-  "deno.unstable": true
+  "deno.unstable": true,
+  "workbench.colorCustomizations": {
+    "[One Dark Pro]": {
+      "titleBar.activeBackground": "#087241cc",
+      "titleBar.activeForeground": "#ffffff"
+    }
+  }
 }
