@@ -8,7 +8,7 @@ app.use(commentsRouter.routes(), commentsRouter.allowedMethods());
 
 // Catch all
 app.use(async (ctx) => {
-  const text = await Deno.readTextFile("./src/static/index.html");
+  const text = await Deno.readTextFile("./src/static/pageNotFound.html");
   ctx.response.type = "text/html";
   ctx.response.body = text;
 });
