@@ -17,10 +17,10 @@ app.use(commentsRouter.routes(), commentsRouter.allowedMethods());
 
 // Catch all
 app.use((ctx) => {
-  const text = Deno.readFileSync("./src/static/pageNotFound.html");
+  const htmlPage = Deno.readFileSync("./src/static/pageNotFound.html");
 
   ctx.response.type = "text/html";
-  ctx.response.body = text;
+  ctx.response.body = htmlPage;
 });
 
 app.addEventListener("listen", ({ hostname, port, secure }) => {
