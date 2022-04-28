@@ -3,9 +3,9 @@ import { getAllComments, getRandomComment } from "../db/useDb.ts";
 
 export const commentsRouter = new Router()
   .get("/", async (ctx) => {
-    const text = await Deno.readTextFile("./src/static/home.html");
+    const htmlPage = await Deno.readTextFile("./src/static/home.html");
     ctx.response.type = "text/html";
-    ctx.response.body = text;
+    ctx.response.body = htmlPage;
   })
   .get("/comments", (ctx) => {
     ctx.response.type = "application/json";
