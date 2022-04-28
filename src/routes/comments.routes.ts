@@ -2,8 +2,8 @@ import { Router } from "https://deno.land/x/oak@v10.5.1/mod.ts";
 import { getAllComments, getRandomComment } from "../db/useDb.ts";
 
 export const commentsRouter = new Router()
-  .get("/", async (ctx) => {
-    const htmlPage = await Deno.readTextFile("./src/static/home.html");
+  .get("/", (ctx) => {
+    const htmlPage = Deno.readTextFileSync("./src/static/home.html");
     ctx.response.type = "text/html";
     ctx.response.body = htmlPage;
   })
