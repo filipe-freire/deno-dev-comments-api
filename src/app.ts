@@ -18,11 +18,9 @@ app.use(
 app.use(commentsRouter.routes(), commentsRouter.allowedMethods());
 
 // Catch all
-app.use(async (ctx) => {
-  const htmlPage = await Deno.readTextFile("./src/static/pageNotFound.html");
-
+app.use((ctx) => {
   ctx.response.type = "text/html";
-  ctx.response.body = htmlPage;
+  ctx.response.body = "Invalid endpoint";
 });
 
 app.addEventListener("listen", ({ hostname, port, secure }) => {
