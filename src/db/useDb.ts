@@ -17,11 +17,16 @@ Deno.env.get("ENV") === "production"
 const db = client.database("deno-comments-api");
 const commentsCollection = db.collection<CommentSchema>("comments");
 
-export const getAllComments = commentsCollection.find().toArray();
+// export const getAllComments = commentsCollection.find().toArray();
 //! Removes _id from response
-// export const getAllComments = await commentsCollection.find({}, {
-//   projection: { _id: 0 },
-// }).toArray();
+export const getAllComments = commentsCollection
+  .find(
+    {},
+    {
+      projection: { _id: 0 },
+    }
+  )
+  .toArray();
 
 export async function getRandomComment() {
   const randomComment = await commentsCollection
