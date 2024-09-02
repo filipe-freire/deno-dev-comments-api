@@ -1,7 +1,16 @@
 import { Hono } from "jsr:@hono/hono@4.5.10";
+import { cors } from "jsr:@hono/hono@4.5.10/cors";
 import { COMMENTS } from "./constants/comments.ts";
 
 export const app = new Hono();
+
+app.use(
+  "/comments",
+  cors({
+    origin: "https://top-dev-comments.vercel.app",
+    allowMethods: ["GET"],
+  }),
+);
 
 app
   .get("/", (c) => {
